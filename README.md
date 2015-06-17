@@ -1,7 +1,7 @@
 About
 ------
-version 1.0
-QT theme (stylesheet) specially developed for FreeCAD (http://www.freecadweb.org/).
+version 1.0<br>
+QT theme (stylesheet) specially developed for FreeCAD (http://www.freecadweb.org/).<br>
 It might work with other software that uses QT styling.
 
 Installation
