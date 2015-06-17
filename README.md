@@ -7,12 +7,12 @@ It might work with other software that uses QT styling.
 Installation
 ------
 1. Place the .qss files and /images/ folder in the path that fits your OS:
-- OSX = /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/images/
-- WINDOWS = C:/[INSTALLATION_PATH]/FreeCAD/data/Gui/Stylesheets/
-- LINUX = /home/[YOUR_USER_NAME]/.FreeCAD/Gui/Stylesheets/
+  - OSX = /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/images/
+  - WINDOWS = C:/[INSTALLATION_PATH]/FreeCAD/data/Gui/Stylesheets/
+  - LINUX = /home/[YOUR_USER_NAME]/.FreeCAD/Gui/Stylesheets/
 2. Images used in the theme need full paths to be found by FreeCAD, so you should search the string  **[PATH_TO_IMAGES]**  and replace with the real path your computer needs to target the /images/ folder. Example:
-- **find** = [PATH_TO_IMAGES] <br>
-- **replace** = /Users/myName/Library/Preferences/FreeCAD/Gui/Stylesheets/images/
+  - **find** = [PATH_TO_IMAGES] <br>
+  - **replace** = /Users/myName/Library/Preferences/FreeCAD/Gui/Stylesheets/images/
 
 Customization
 ------
