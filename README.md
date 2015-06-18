@@ -5,6 +5,12 @@ version 1.0
 QT themes (stylesheet) specially developed for **FreeCAD** (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
 
+Dark style example:
+![Dark-Green stylesheet](/../multimedia/img/stylesheet_dark.png?raw=true "Dark-Green stylesheet")
+
+Light style example:
+![Dark-Green stylesheet](/../multimedia/img/stylesheet_light.png?raw=true "Dark-Green stylesheet")
+
 Installation
 ------
 1. Place the .qss files and /images/ folder in the path that fits your OS:
