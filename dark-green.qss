@@ -1,7 +1,7 @@
 /*
 ABOUT
 ===========================================================
-version 1.1
+version 1.2
 QT theme (stylesheet) specially developed for FreeCAD (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
 
@@ -510,14 +510,15 @@ QPushButton {
     border: 1px solid #4f514d;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
     margin-top: 4px;
     margin-bottom: 4px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
     border-radius: 3px;
-    min-width: 4px;
+    min-width: 14px;
+    min-height: 14px;
 }
 
 QPushButton:hover,
@@ -551,9 +552,43 @@ QPushButton::menu-indicator  {
 }
 */
 
-QToolbar QPushButton {
-    background-color: orange;
-    border-width: red;
+/* Buttons inside the toolbar */
+QToolBar QPushButton {
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #7d7f79, stop:1 #888a85);
+    border: 1px solid #6f716d;
+    min-width: 14px;
+    min-height: 14px;
+    margin: 3px;
+    padding: 3px;
+}
+
+QToolBar QPushButton:hover,
+QToolBar QPushButton:focus {
+    color: #c8c9c7;
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #7d7f79, stop:1 #888a85);
+    border: 1px solid #4f514d;
+}
+
+QToolBar QPushButton:disabled,
+QToolBar QPushButton:disabled:checked {
+    background-color: #888a85;
+    border-color: #7d7f79;
+}
+
+QToolBar QPushButton:pressed {
+    background-color: #6f716d;
+    border-color: #6f716d;
+}
+
+QToolBar QPushButton:checked {
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.8, x2:1, y2:0, stop:0 #b5d757, stop:1 #cbe389);
+    border-color: #b5d757;
+}
+
+QToolBar QPushButton:checked:hover,
+QToolBar QPushButton:checked:focus {
+    color: #c8c9c7;
+    border: 1px solid #97c029;
 }
 
 QToolBar {
@@ -600,13 +635,19 @@ QStackedWidget {
 }
 
 QAbstractSpinBox {
-    padding-top: 2px;
-    padding-bottom: 2px;
+    color: #c8c9c7;
     border: 1px solid #4f514d;
     background-color: #6f716d;
-    color: #c8c9c7;
     border-radius: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px;
     min-width: 120px;
+}
+
+QToolBar QAbstractSpinBox {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 QLineEdit {
@@ -615,6 +656,8 @@ QLineEdit {
     padding-left: 8px;
     padding-top: 3px;
     padding-bottom: 3px;
+    margin-right: 2px;
+    margin-left: 2px;
     border-style: solid;
     border: 1px solid #4f514d;
     border-radius: 3px;
@@ -792,7 +835,7 @@ QTabBar::tab:top:selected,
 QTabBar::tab:bottom:selected {
     color: white;
     background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #97c029, stop:1 #b5d757);
-    border-color: #5d7619;
+    border-color: #97c029;
 }
 
 QTabBar::tab:top:!selected:hover,
@@ -1409,14 +1452,14 @@ QSplitter::handle:vertical:hover {
 
 /* Similar to the splitter is the following window separator: */
 QMainWindow::separator {
-    border: 1px solid #8a8985;
-    background-color: #8a8985;
+    border: 1px solid #888a85;
+    background-color: #888a85;
     background-position: center center;
     background-repeat: none;
 }
 
 QMainWindow::separator:hover {
-    background-color: #8a8985;
+    background-color: #888a85;
 }
 
 QMainWindow::separator:horizontal {

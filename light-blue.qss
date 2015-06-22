@@ -1,7 +1,7 @@
 /*
 ABOUT
 ===========================================================
-version 1.1
+version 1.2
 QT theme (stylesheet) specially developed for FreeCAD (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
 
@@ -510,14 +510,15 @@ QPushButton {
     border: 1px solid #828282;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
     margin-top: 4px;
     margin-bottom: 4px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
     border-radius: 3px;
-    min-width: 4px;
+    min-width: 14px;
+    min-height: 14px;
 }
 
 QPushButton:hover,
@@ -551,9 +552,43 @@ QPushButton::menu-indicator  {
 }
 */
 
-QToolbar QPushButton {
-    background-color: orange;
-    border-width: red;
+/* Buttons inside the toolbar */
+QToolBar QPushButton {
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #e0e0e0, stop:1 #e6e6e6);
+    border: 1px solid #b6b6b6;
+    min-width: 14px;
+    min-height: 14px;
+    margin: 3px;
+    padding: 3px;
+}
+
+QToolBar QPushButton:hover,
+QToolBar QPushButton:focus {
+    color: #ffffff;
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #e0e0e0, stop:1 #e6e6e6);
+    border: 1px solid #828282;
+}
+
+QToolBar QPushButton:disabled,
+QToolBar QPushButton:disabled:checked {
+    background-color: #e6e6e6;
+    border-color: #e0e0e0;
+}
+
+QToolBar QPushButton:pressed {
+    background-color: #b6b6b6;
+    border-color: #b6b6b6;
+}
+
+QToolBar QPushButton:checked {
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.8, x2:1, y2:0, stop:0 #5e90fa, stop:1 #7cabf9);
+    border-color: #5e90fa;
+}
+
+QToolBar QPushButton:checked:hover,
+QToolBar QPushButton:checked:focus {
+    color: #ffffff;
+    border: 1px solid #3874f2;
 }
 
 QToolBar {
@@ -600,13 +635,19 @@ QStackedWidget {
 }
 
 QAbstractSpinBox {
-    padding-top: 2px;
-    padding-bottom: 2px;
+    color: #ffffff;
     border: 1px solid #828282;
     background-color: #b6b6b6;
-    color: #ffffff;
     border-radius: 3px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px;
     min-width: 120px;
+}
+
+QToolBar QAbstractSpinBox {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 QLineEdit {
@@ -615,6 +656,8 @@ QLineEdit {
     padding-left: 8px;
     padding-top: 3px;
     padding-bottom: 3px;
+    margin-right: 2px;
+    margin-left: 2px;
     border-style: solid;
     border: 1px solid #828282;
     border-radius: 3px;
@@ -792,7 +835,7 @@ QTabBar::tab:top:selected,
 QTabBar::tab:bottom:selected {
     color: white;
     background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #3874f2, stop:1 #5e90fa);
-    border-color: #1b3774;
+    border-color: #3874f2;
 }
 
 QTabBar::tab:top:!selected:hover,
