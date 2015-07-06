@@ -1,6 +1,6 @@
 About
 ------
-version 1.3
+version 1.4
 
 QT themes (stylesheet) specially developed for **FreeCAD** (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
@@ -41,7 +41,7 @@ If you would like to change the overall look/style of the theme, just find and r
 Caveats
 ------
 - as said in Installation, **full paths to images are needed**, that means all these .qss files should be edited per user. I hope FreeCAD developers make a workaround about it.
-- **the "Task panel" is not stylable** right now (FreeCAD 0.15), I hope it changes in the near future
+- **the "Task panel" is not stylable** right now (FreeCAD 0.15) but, thanks to the help of wmayer, it will be on FreeCAD 0.16. You can test it with [wmayer-qsint](http://sourceforge.net/p/free-cad/code/ci/wmayer-qsint/tree/) development branch and with these stylesheets
 - in app icons-buttons are designed in svg but are not stylable, that is, it's not possible to change them... I hope it also changes in the near future
 
 Known bugs

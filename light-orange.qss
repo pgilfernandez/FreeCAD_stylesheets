@@ -1,7 +1,7 @@
 /*
 ABOUT
 ===========================================================
-version 1.3
+version 1.4
 QT theme (stylesheet) specially developed for FreeCAD (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
 
@@ -51,12 +51,22 @@ CAVEATS
 ===========================================================
     - as said in Installation Steps, full paths to images are needed, that means all these .qss files should be edited per user. I hope FreeCAD developers make a workaround about it.
     - the "Task panel" is not stylable right now (FreeCAD 0.15), I hope it changes in the near future
+    - the "Task panel" is not stylable right now (FreeCAD 0.15) but, thanks to the help of wmayer, it will be on FreeCAD 0.16. You can test it with wmayer-qsint development branch (http://sourceforge.net/p/free-cad/code/ci/wmayer-qsint/tree/) and with these stylesheets
     - in app icons-buttons are designed in svg but are not stylable, that is, it's not possible to change them... I hope it also changes in the near future
 
 
 KNOWN BUGS
 ===========================================================
     - In OSX, height and width in "QMainWindow::separator:horizontal" and "QMainWindow::separator:vertical" produces a weird line when moving the separators
+
+
+TO DO
+===========================================================
+    - different images for toolbar horizontal/vertical "show more" buttons
+    - delete border style for icons inside Workbenches dropdown
+    - make more space for ToolButtons with menu inside to toolbar because the dropdown button is inside the button itself
+    - padding of table header text inside combobox
+    - align text of Model panel header to center
 */
 
 QMdiArea[showImage="true"] {
@@ -238,6 +248,11 @@ QAbstractScrollArea {
     background-color: transparent;
 }
 
+QAbstractScrollArea::corner {
+    border: none;
+    background-color: #e6e6e6;
+}
+
 QScrollBar:horizontal {
     height: 15px;
     margin: 3px 15px 3px 15px;
@@ -253,40 +268,32 @@ QScrollBar::handle:horizontal {
 }
 
 QScrollBar::add-line:horizontal {
-    margin: 0px 3px 0px 3px;
-    border-image: url([PATH_TO_IMAGES]/right_arrow_disabled.png);
-    width: 10px;
+    margin: 1px 3px 0px 3px; /* 1px to correctly fit the 10px width image */
+    border-image: url([PATH_TO_IMAGES]/right_arrow_light.png);
+    width: 6px;
     height: 10px;
     subcontrol-position: right;
     subcontrol-origin: margin;
 }
 
 QScrollBar::sub-line:horizontal {
-    margin: 0px 3px 0px 3px;
-    border-image: url([PATH_TO_IMAGES]/left_arrow_disabled.png);
+    margin: 1px 3px 0px 3px; /* 1px to correctly fit the 10px width image */
+    border-image: url([PATH_TO_IMAGES]/left_arrow_light.png);
     height: 10px;
-    width: 10px;
+    width: 6px;
     subcontrol-position: left;
     subcontrol-origin: margin;
 }
 
 QScrollBar::add-line:horizontal:hover,
 QScrollBar::add-line:horizontal:on {
-    border-image: url([PATH_TO_IMAGES]/right_arrow.png);
-    height: 10px;
-    width: 10px;
-    subcontrol-position: right;
-    subcontrol-origin: margin;
+    border-image: url([PATH_TO_IMAGES]/right_arrow_lighter.png);
 }
 
 
 QScrollBar::sub-line:horizontal:hover,
 QScrollBar::sub-line:horizontal:on {
-    border-image: url([PATH_TO_IMAGES]/left_arrow.png);
-    height: 10px;
-    width: 10px;
-    subcontrol-position: left;
-    subcontrol-origin: margin;
+    border-image: url([PATH_TO_IMAGES]/left_arrow_lighter.png);
 }
 
 QScrollBar::up-arrow:horizontal,
@@ -315,18 +322,18 @@ QScrollBar::handle:vertical {
 }
 
 QScrollBar::sub-line:vertical {
-    margin: 3px 0px 3px 0px;
-    border-image: url([PATH_TO_IMAGES]/up_arrow_disabled.png);
-    height: 10px;
+    margin: 3px 0px 3px 1px; /* 1px to correctly fit the 10px width image */
+    border-image: url([PATH_TO_IMAGES]/up_arrow_light.png);
+    height: 6px;
     width: 10px;
     subcontrol-position: top;
     subcontrol-origin: margin;
 }
 
 QScrollBar::add-line:vertical {
-    margin: 3px 0px 3px 0px;
-    border-image: url([PATH_TO_IMAGES]/down_arrow_disabled.png);
-    height: 10px;
+    margin: 3px 0px 3px 1px; /* 1px to correctly fit the 10px width image */
+    border-image: url([PATH_TO_IMAGES]/down_arrow_light.png);
+    height: 6px;
     width: 10px;
     subcontrol-position: bottom;
     subcontrol-origin: margin;
@@ -334,21 +341,12 @@ QScrollBar::add-line:vertical {
 
 QScrollBar::sub-line:vertical:hover,
 QScrollBar::sub-line:vertical:on {
-
-    border-image: url([PATH_TO_IMAGES]/up_arrow.png);
-    height: 10px;
-    width: 10px;
-    subcontrol-position: top;
-    subcontrol-origin: margin;
+    border-image: url([PATH_TO_IMAGES]/up_arrow_lighter.png);
 }
 
 QScrollBar::add-line:vertical:hover,
 QScrollBar::add-line:vertical:on {
-    border-image: url([PATH_TO_IMAGES]/down_arrow.png);
-    height: 10px;
-    width: 10px;
-    subcontrol-position: bottom;
-    subcontrol-origin: margin;
+    border-image: url([PATH_TO_IMAGES]/down_arrow_lighter.png);
 }
 
 QScrollBar::up-arrow:vertical,
@@ -510,8 +508,8 @@ QPushButton {
     border: 1px solid #828282;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
     margin-top: 4px;
     margin-bottom: 4px;
     margin-left: 8px;
@@ -551,6 +549,29 @@ QPushButton::menu-indicator  {
     left: 8px;
 }
 */
+
+/* Color Buttons */
+Gui--ColorButton,
+Gui--ColorButton:disabled {
+    border-color: #e6e6e6;
+    background-color: #e6e6e6;
+    width: 60px;
+    height: 24px;
+    padding: 0px;
+    margin: 0px;
+}
+
+Gui--ColorButton:hover {
+    border-color: #e0e0e0;
+    background-color: #e0e0e0;
+}
+
+/* Color Buttons inside the "Properties window" */
+QAbstractItemView Gui--ColorButton {
+    padding: 0px;
+    margin: 0px;
+    height: 17px; /* temporal */
+}
 
 /* Buttons inside the toolbar */
 QToolBar QPushButton {
@@ -646,14 +667,55 @@ QAbstractSpinBox {
     border-radius: 3px;
     padding-top: 2px;
     padding-bottom: 2px;
-    margin: 2px;
+    /*margin: 2px; temporal */
     min-width: 120px;
+}
+
+QAbstractSpinBox:up-button {
+    background-color: transparent;
+    subcontrol-origin: border;
+    subcontrol-position: center right;
+    height: 100%;
+    width: 20px;
+}
+
+QAbstractSpinBox:down-button {
+    background-color: transparent;
+    subcontrol-origin: border;
+    subcontrol-position: center left;
+    height: 100%;
+    width: 20px;
+}
+
+QAbstractSpinBox::up-arrow,
+QAbstractSpinBox::up-arrow:disabled,
+QAbstractSpinBox::up-arrow:off {
+    image: url([PATH_TO_IMAGES]/right_arrow_light.png);
+}
+
+QAbstractSpinBox::up-arrow:hover {
+    image: url([PATH_TO_IMAGES]/right_arrow_lighter.png);
+}
+
+QAbstractSpinBox::down-arrow,
+QAbstractSpinBox::down-arrow:disabled,
+QAbstractSpinBox::down-arrow:off {
+    image: url([PATH_TO_IMAGES]/left_arrow_light.png);
+}
+QAbstractSpinBox::down-arrow:hover {
+    image: url([PATH_TO_IMAGES]/left_arrow_lighter.png);
 }
 
 QToolBar QAbstractSpinBox {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+/*QAbstractItemView QAbstractSpinBox {
+    margin: 0px;
+}
+temporal
+*/
 
 QLineEdit {
     background-color: #b6b6b6;
@@ -715,13 +777,13 @@ QComboBox::drop-down {
 }
 
 QComboBox::down-arrow {
-    image: url([PATH_TO_IMAGES]/down_arrow.png);
+    image: url([PATH_TO_IMAGES]/down_arrow_light.png);
 }
 
 QComboBox::down-arrow:on,
 QComboBox::down-arrow:hover,
 QComboBox::down-arrow:focus {
-    image: url([PATH_TO_IMAGES]/down_arrow.png);
+    image: url([PATH_TO_IMAGES]/down_arrow_lighter.png);
 }
 
 QComboBox QAbstractItemView {
@@ -734,41 +796,47 @@ QComboBox QAbstractItemView {
 }
 
 QAbstractItemView {
-    alternate-background-color: #cbc9c4; /* related with QListView background */
     color: #828282;
+    alternate-background-color: #cbc9c4; /* related with QListView background */
     border: 1px solid #828282;
     border-radius: 3px;
     padding: 0px;
 }
 
-QAbstractSpinBox:up-button {
+/* hack to hide weird redundant information inside the value of a Placement cell */
+QAbstractItemView QLabel,
+QAbstractItemView QLabel:disabled {
+    color: transparent;
     background-color: transparent;
-    subcontrol-origin: border;
-    subcontrol-position: center right;
+    border: none;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
-QAbstractSpinBox:down-button {
+/* Pushbutton style for "..." inside Placement cell which launches Placement tool */
+QAbstractItemView QPushButton {
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #b6b6b6, stop:1 #e6e6e6);
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    border-left: 1px solid #828282;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px;
+    height: 20px; /* temporal */
+}
+
+QAbstractItemView QPushButton:hover {
+    color: white;
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #e0a108, stop:1 #f8bf36);
+    border-color: #e0a108;
+}
+
+QAbstractItemView QPushButton:disabled {
+    color: transparent;
     background-color: transparent;
-    subcontrol-origin: border;
-    subcontrol-position: center left;
-}
-
-QAbstractSpinBox::up-arrow,QAbstractSpinBox::up-arrow:disabled,QAbstractSpinBox::up-arrow:off {
-    image: url([PATH_TO_IMAGES]/right_arrow_disabled.png);
-    width: 10px;
-    height: 10px;
-}
-QAbstractSpinBox::up-arrow:hover {
-    image: url([PATH_TO_IMAGES]/right_arrow.png);
-}
-
-QAbstractSpinBox::down-arrow,QAbstractSpinBox::down-arrow:disabled,QAbstractSpinBox::down-arrow:off {
-    image: url([PATH_TO_IMAGES]/left_arrow_disabled.png);
-    width: 10px;
-    height: 10px;
-}
-QAbstractSpinBox::down-arrow:hover {
-    image: url([PATH_TO_IMAGES]/left_arrow.png);
+    border-color: transparent;
 }
 
 QLabel {
@@ -1003,22 +1071,22 @@ QTreeView::branch:!has-children:!has-siblings:adjoins-item {
 
 QTreeView::branch:has-children:!has-siblings:closed,
 QTreeView::branch:closed:has-children:has-siblings {
-    image: url([PATH_TO_IMAGES]/branch_closed.png);
+    image: url([PATH_TO_IMAGES]/branch_closed_dark.png);
 }
 
 QTreeView::branch:open:has-children:!has-siblings,
 QTreeView::branch:open:has-children:has-siblings  {
-    image: url([PATH_TO_IMAGES]/branch_open.png);
+    image: url([PATH_TO_IMAGES]/branch_open_dark.png);
 }
 
 QTreeView::branch:has-children:!has-siblings:closed:hover,
 QTreeView::branch:closed:has-children:has-siblings:hover {
-    image: url([PATH_TO_IMAGES]/branch_closed.png);
+    image: url([PATH_TO_IMAGES]/branch_closed_dark.png);
 }
 
 QTreeView::branch:open:has-children:!has-siblings:hover,
 QTreeView::branch:open:has-children:has-siblings:hover  {
-    image: url([PATH_TO_IMAGES]/branch_open.png);
+    image: url([PATH_TO_IMAGES]/branch_open_dark.png);
 }
 
 QSlider,
@@ -1216,19 +1284,6 @@ QToolBar QToolButton:disabled {
     background-color: #e6e6e6;
 }
 
-QToolBar QToolButton[popupMode="1"] { /* only for MenuButtonPopup */
-    padding-right: 20px; /* make way for the popup button */
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-}
-
-QToolBar QToolButton[popupMode="2"] { /* only for InstantPopup */
-    padding-right: 20px; /* make way for the popup button */
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #e6e6e6;
-}
-
 /*
 QToolButton:hover,
 QToolButton::menu-button:hover {
@@ -1252,52 +1307,86 @@ QToolBar QToolButton::menu-button:pressed {
     border: 1px solid #e0e0e0;
 }
 
-/* the subcontrol below is used only in the InstantPopup or DelayedPopup mode */
-QToolBar QToolButton::menu-indicator {
-    image: url([PATH_TO_IMAGES]/down_arrow_disabled.png);
-    top: -8px; left: -4px; /* shift it a bit */
-    background-color: transparent;
-}
-
 
 QToolBar QToolButton::menu-indicator:hover,
 QToolBar QToolButton::menu-indicator:pressed {
     background-color: transparent;
 }
 
+/* only for DelayedPopup
+QToolBar QToolButton[popupMode="0"] {
+    padding-right: 20px; /* make way for the popup button
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+}
+
+ /* only for MenuButtonPopup
+QToolBar QToolButton[popupMode="1"] {
+    padding-right: 40px; /* make way for the popup button
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+}
+
+ /* only for InstantPopup
+QToolBar QToolButton[popupMode="2"] {
+    padding-right: 20px; /* make way for the popup button
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #e6e6e6;
+}
+
+/* the subcontrol below is used only in the InstantPopup or DelayedPopup mode
+QToolBar QToolButton::menu-indicator {
+    image: url([PATH_TO_IMAGES]/right_arrow_light.png);
+    top: -8px; left: -4px; /* shift it a bit
+    background-color: transparent;
+}
+*/
+
 /* the subcontrols below are used only in the MenuButtonPopup mode */
 QToolBar QToolButton::menu-button {
     border: 1px transparent #4A4949;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    /* 16px width + 4px for border = 20px allocated above */
-    width: 16px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    width: 16px; /* 16px width + 4px for border = 20px allocated above */
     outline: none;
+    background-color: transparent;
 }
 
-QTabBar QToolButton::right-arrow:enabled {
-     image: url([PATH_TO_IMAGES]/right_arrow.png);
-}
-
- QTabBar QToolButton::left-arrow:enabled {
-     image: url([PATH_TO_IMAGES]/left_arrow.png);
-}
-
-QTabBar QToolButton::right-arrow:disabled {
-     image: url([PATH_TO_IMAGES]/right_arrow_disabled.png);
-}
-
- QTabBar QToolButton::left-arrow:disabled {
-     image: url([PATH_TO_IMAGES]/left_arrow_disabled.png);
+QToolBar QToolButton::menu-button:hover,
+QToolBar QToolButton::menu-button:active,
+QToolBar QToolButton::menu-button:disabled {
+    border-color: transparent;
+    background-color: transparent;
 }
 
 QToolBar QToolButton::menu-arrow {
-    image: url([PATH_TO_IMAGES]/down_arrow.png);
+    background-image: url([PATH_TO_IMAGES]/down_arrow_light.png);
+    background-position: center center;
+    background-repeat: none;
+    subcontrol-origin: padding;
+    subcontrol-position: bottom right;
+    height: 10px; /* same as arrow image */
 }
 
 QToolBar QToolButton::menu-arrow:open {
-    top: 1px; left: 1px; /* shift it a bit */
-    border: 1px solid transparent;
+    background-image: url([PATH_TO_IMAGES]/down_arrow_lighter.png);
+}
+
+QTabBar QToolButton::right-arrow:enabled {
+     background-image: url([PATH_TO_IMAGES]/right_arrow_light.png);
+}
+
+ QTabBar QToolButton::left-arrow:enabled {
+     background-image: url([PATH_TO_IMAGES]/left_arrow_light.png);
+}
+
+QTabBar QToolButton::right-arrow:disabled {
+     background-image: url([PATH_TO_IMAGES]/right_arrow_light.png);
+}
+
+ QTabBar QToolButton::left-arrow:disabled {
+     background-image: url([PATH_TO_IMAGES]/left_arrow_light.png);
 }
 
 QToolBar:tear {
@@ -1308,7 +1397,7 @@ QToolBar:tear {
 QTableView {
     color: #828282;
     border: 1px solid #b6b6b6;
-    gridline-color: #828282;
+    gridline-color: #f5f5f5;
     selection-background-color: #fce6b1;
     background-color: #d3d1cd;
     border-radius: 3px;
@@ -1334,8 +1423,17 @@ QTableView::item:selected  {
     background-color: #fad57a;
 }
 
+/* when editing a cell: */
+QTableView QLineEdit {
+    color: #828282;
+    background-color: #d3d1cd;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
 QHeaderView {
-    border: 1px solid #828282;
+    border: none;
     background-color: #828282;
     border-radius: 0px;
     margin: 0px;
@@ -1343,30 +1441,49 @@ QHeaderView {
 }
 
 QHeaderView::section  {
-    background-color: #828282;
+    background-color: transparent;
     color: #ffffff;
-    padding: 4px;
-    border: 1px solid #828282;
+    border: 1px solid transparent;
     border-radius: 0px;
     text-align: center;
 }
 
-QHeaderView::section::vertical::first,
-QHeaderView::section::vertical::only-one {
-    border-top: 1px solid #828282;
+QHeaderView::section::vertical  {
+    padding: 0px 6px 0px 6px;
+    border-bottom: 1px solid #b6b6b6;
 }
 
-QHeaderView::section::vertical {
-    border-top: 1px solid #b6b6b6;
+QHeaderView::section::vertical:first {
+    border-top: 1px solid  #b6b6b6;
 }
 
-QHeaderView::section::horizontal::first,
-QHeaderView::section::horizontal::only-one {
-    border-left: 1px solid #828282;
+QHeaderView::section::vertical:last {
+    border-bottom: none;
 }
 
-QHeaderView::section::horizontal {
+QHeaderView::section::vertical:only-one {
+    border: none;
+}
+
+QHeaderView::section::horizontal  {
+    padding: 0px;
+    border-right: 1px solid #b6b6b6;
+}
+
+QHeaderView::section::horizontal:first {
     border-left: 1px solid #b6b6b6;
+}
+
+QHeaderView::section::horizontal:last {
+    border-left: none;
+}
+
+QHeaderView::section::horizontal:only-one {
+    border: none;
+}
+
+QDockWidget QHeaderView::section {
+    border-width: 6px 1px 6px 1px; /* hack to bigger margin for Model Panel table headers */
 }
 
 QHeaderView::section:checked {
@@ -1376,11 +1493,11 @@ QHeaderView::section:checked {
 
  /* style the sort indicator */
 QHeaderView::down-arrow {
-    image: url([PATH_TO_IMAGES]/down_arrow.png);
+    image: url([PATH_TO_IMAGES]/down_arrow_light.png);
 }
 
 QHeaderView::up-arrow {
-    image: url([PATH_TO_IMAGES]/up_arrow.png);
+    image: url([PATH_TO_IMAGES]/up_arrow_light.png);
 }
 
 QTableCornerButton::section {
@@ -1475,3 +1592,232 @@ QMainWindow::separator:vertical {
     
 }
 
+/* EXPERIMENTAL */
+
+/*iisTaskBox {
+    border: 3px solid red;
+    border-radius: 6px;
+    background: transparent;
+    background-color: transparent;
+}*/
+
+/*iisTaskBox,
+iisTaskGroup,
+iisTaskHeader,
+iisTaskPanel,
+QFrame#panel,
+QFrame::panel,
+QFrame--panel,
+QFrame[class="panel"],
+iisTaskBox QToolButton,
+iisTaskBox QFrame,
+iisTaskGroup QToolButton,
+iisTaskGroup QFrame,
+iisTaskHeader QToolButton,
+iisTaskHeader QFrame,
+iisTaskPanel QToolButton,
+iisTaskPanel QFrame {
+    color: red;
+    background-color: red;
+    border: 3px solid red;
+}*/
+
+/* Action group */
+
+QFrame[class="panel"] {
+    border: none;
+    background-color: #e6e6e6;
+}
+
+QSint--ActionGroup QFrame[class="header"] {
+    border: none;
+    background-color: #828282;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+QSint--ActionGroup QFrame[class="header"]:hover {
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #e0a108, stop:1 #f8bf36);
+}
+
+QSint--ActionGroup QToolButton[class="header"] {
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+QSint--ActionGroup QToolButton[class="header"]:hover {
+    color: white;
+}
+
+QSint--ActionGroup QFrame[class="header"] QLabel {
+    background-color: transparent;
+    background-image: url([PATH_TO_IMAGES]/down_arrow_light.png);
+    background-repeat: none;
+    background-position: center center;
+    padding: 0px;
+    margin: 0px;
+}
+
+QSint--ActionGroup QFrame[class="header"] QLabel:hover {
+    background-color: transparent;
+    background-image: url([PATH_TO_IMAGES]/down_arrow_lighter.png);
+}
+QSint--ActionGroup headerButtonFoldOver,
+QSint--ActionGroup headerButtonUnfoldOver,
+QSint--ActionGroup headerButtonFold,
+QSint--ActionGroup headerButtonUnfold {
+    background-color: yellow;
+}
+
+QSint--ActionGroup QFrame[class="content"] {
+    background-color: #d3d1cd;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+/* HACK
+This might not be the best way to reset the background color: */
+QSint--ActionGroup QFrame[class="content"] QWidget {
+    background-color: transparent;
+}
+
+QSint--ActionGroup QFrame[class="content"] QPushButton {
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #b6b6b6, stop:1 #e6e6e6);
+}
+
+QSint--ActionGroup QFrame[class="content"] QPushButton:hover,
+QSint--ActionGroup QFrame[class="content"] QPushButton:focus {
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #e0a108, stop:1 #f8bf36);
+}
+
+QSint--ActionGroup QFrame[class="content"] QPushButton:disabled,
+QSint--ActionGroup QFrame[class="content"] QPushButton:disabled:checked {
+    background-color: #e6e6e6;
+}
+QSint--ActionGroup QFrame[class="content"] QPushButton:checked {
+    background-color: #f8bf36;
+}
+
+QSint--ActionGroup QFrame[class="content"] QComboBox {
+    background-color: #b6b6b6;
+}
+
+QSint--ActionGroup QFrame[class="content"] QComboBox:on {
+    background-color: #b6b6b6;
+}
+
+QSint--ActionGroup QFrame[class="content"] QComboBox:disabled {
+    color: #d3d1cd;
+    border-color: #f5f5f5;
+    background-color: #f5f5f5;
+}
+
+QSint--ActionGroup QFrame[class="content"] QComboBox QAbstractItemView {
+    border-color: #828282;
+    background-color: #828282;
+}
+
+QSint--ActionGroup QFrame[class="content"] QListView {
+    border-color: #cbc9c4;
+    background-color: #cbc9c4;
+}
+
+QSint--ActionGroup QFrame[class="content"] QAbstractSpinBox {
+    background-color: #b6b6b6;
+}
+
+/* enf of HACK */
+
+QSint--ActionGroup QToolButton[class="action"],
+QSint--ActionGroup QToolButton[class="action"]:enabled {
+    color: #b6b6b6;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+QSint--ActionGroup QToolButton[class="action"]:hover,
+QSint--ActionGroup QToolButton[class="action"]:enabled:hover {
+    font-weight: bold;
+    color: #828282;
+    background-color: #cbc9c4;
+    border-color: #cbc9c4;
+}
+
+QSint--ActionGroup QToolButton[class="action"]:disabled {
+    color: #e6e6e6;
+    background-color: #cbc9c4;
+    border-color: #cbc9c4;
+}
+
+QSint--ActionGroup QToolButton[class="action"]:focus,
+QSint--ActionGroup QToolButton[class="action"]:pressed
+QSint--ActionGroup QToolButton[class="action"]:enabled:focus,
+QSint--ActionGroup QToolButton[class="action"]:enabled:pressed {
+    color: white;
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #e0a108, stop:1 #f8bf36);
+    border-color: #e0a108;
+}
+
+QSint--ActionGroup QToolButton[class="action"]:on {
+    background-color: red;
+    color: red;
+}
+
+/* Action box */
+
+QSint--ActionBox {
+    background-color: red;
+    border: 1px solid red;
+    text-align: left;
+}
+
+QSint--ActionBox:hover {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 red, stop: 1 green);
+    border: 1px solid red;
+}
+
+QSint--ActionBox QSint--ActionLabel[class="header"] {
+    text-align: center;
+    font: 14px bold;
+    color: red;
+    background-color: blue;
+    border: 1px solid blue;
+}
+
+QSint--ActionBox QSint--ActionLabel[class="header"]:hover {
+    color: red;
+    text-decoration: underline;
+    border: 1px dotted red;
+}
+
+QSint--ActionBox QSint--ActionLabel[class="action"] {
+    background-color: transparent;
+    border: none;
+    color: red;
+    text-align: left;
+    font: 11px;
+}
+
+QSint--ActionBox QSint--ActionLabel[class="action"]:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+QSint--ActionBox QSint--ActionLabel[class="action"]:on {
+    background-color: red;
+    color: red;
+}
