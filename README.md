@@ -18,8 +18,8 @@ Installation
   - **WINDOWS** = C:/[INSTALLATION_PATH]/FreeCAD/data/Gui/Stylesheets/
   - **LINUX** = /home/[YOUR_USER_NAME]/.FreeCAD/Gui/Stylesheets/
 2. In order to display correctly images that are used inside the stylesheet:
-    2.1. If you use FreeCAD 0.16 (development builds newer than commit 5b3d50a): that's it, you are done!
-    2.2. If you use FreeCAD 0.15: Images used in the theme need full paths to be found by FreeCAD, so you should search the string **qss:images** and replace with the real path of your computer. It should be done with all the .qss files you want to install-use
+    1. If you use **FreeCAD 0.16** (development builds newer than commit 5b3d50a): that's it, you are done!
+    2. If you use **FreeCAD 0.15**: Images used in the theme need full paths to be found by FreeCAD, so you should search the string **qss:images** and replace with the real path of your computer. It should be done with all the .qss files you want to install-use
         - **find** = qss:images
         - **replace** = /Users/myName/Library/Preferences/FreeCAD/Gui/Stylesheets/images
 
