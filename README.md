@@ -1,6 +1,6 @@
 About
 ------
-version 1.4
+version 1.5
 
 QT themes (stylesheet) specially developed for **FreeCAD** (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
@@ -17,9 +17,11 @@ Installation
   - **OSX** = /Users/[YOUR_USER_NAME]/Library/Preferences/FreeCAD/Gui/Stylesheets/
   - **WINDOWS** = C:/[INSTALLATION_PATH]/FreeCAD/data/Gui/Stylesheets/
   - **LINUX** = /home/[YOUR_USER_NAME]/.FreeCAD/Gui/Stylesheets/
-2. Images used in the theme need full paths to be found by FreeCAD, so you should search the string  **[PATH_TO_IMAGES]**  and replace with the real path of your computer. It should be done with all the .qss files you want to install-use. Example:
-  - **find** = [PATH_TO_IMAGES] <br>
-  - **replace** = /Users/myName/Library/Preferences/FreeCAD/Gui/Stylesheets/images/
+2. In order to display correctly images that are used inside the stylesheet:
+    2.1. If you use FreeCAD 0.16 (development builds newer than commit 5b3d50a): that's it, you are done!
+    2.2. If you use FreeCAD 0.15: Images used in the theme need full paths to be found by FreeCAD, so you should search the string **qss:images** and replace with the real path of your computer. It should be done with all the .qss files you want to install-use
+        - **find** = qss:images
+        - **replace** = /Users/myName/Library/Preferences/FreeCAD/Gui/Stylesheets/images
 
 Customization
 ------
@@ -32,6 +34,7 @@ If you would like to change the overall look/style of the theme, just find and r
 - background ligher
 - lists backgound
 - lists backgound (alternate)
+- foreground
 - selection darker
 - selection dark
 - selection normal
@@ -40,8 +43,9 @@ If you would like to change the overall look/style of the theme, just find and r
 
 Caveats
 ------
-- as said in Installation, **full paths to images are needed**, that means all these .qss files should be edited per user. I hope FreeCAD developers make a workaround about it.
-- **the "Task panel" is not stylable** right now (FreeCAD 0.15) but, thanks to the help of wmayer, it will be on FreeCAD 0.16. You can test it with [wmayer-qsint](http://sourceforge.net/p/free-cad/code/ci/wmayer-qsint/tree/) development branch and with these stylesheets
+- **FreeCAD 0.15**
+    * full paths to images are needed, that means all these .qss files should be edited per user
+    * the "Task panel" is not stylable
 - in app icons-buttons are designed in svg but are not stylable, that is, it's not possible to change them... I hope it also changes in the near future
 
 Known bugs
