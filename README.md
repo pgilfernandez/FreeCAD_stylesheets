@@ -1,6 +1,6 @@
 About
 ------
-version 1.5
+version 1.6
 
 QT themes (stylesheet) specially developed for **FreeCAD** (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
@@ -32,8 +32,9 @@ If you would like to change the overall look/style of the theme, just find and r
 - background normal
 - background light
 - background ligher
-- lists backgound
-- lists backgound (alternate)
+- lists background
+- lists background (alternate)
+- lists background selection
 - foreground
 - selection darker
 - selection dark
@@ -51,6 +52,15 @@ Caveats
 Known bugs
 ------
 - In OSX, height and width in "QMainWindow::separator:horizontal" and "QMainWindow::separator:vertical" produces a weird line when moving the separators
+
+To do
+------
+- different images for toolbar horizontal/vertical "show more" buttons
+- delete border style for icons inside Workbenches dropdown
+- make more space for ToolButtons with menu inside to toolbar because the dropdown button is inside the button itself
+- padding of table header text inside combobox
+- align text of Model panel header to center
+- style what seems a QLineEdit when editing "Page Result", "Template" or "Editable Texts" when selecting a Page and on the Data panel
 
 License
 ------
