@@ -27,8 +27,9 @@ Customization
 ------
 If you would like to change the overall look/style of the theme, just find and replace the "palette colors" listed at the start of the file you want to edit:
 - background darker
+- background dark and slighly darker
 - background dark
-- background normal and slightly darker
+- background normal and slighly darker
 - background normal
 - background light
 - background ligher
@@ -39,6 +40,7 @@ If you would like to change the overall look/style of the theme, just find and r
 - selection darker
 - selection dark
 - selection normal
+- selection inbetween normal and light
 - selection light
 - selection lighter
 
