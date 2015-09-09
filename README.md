@@ -1,6 +1,6 @@
 About
 ------
-version 1.6
+version 1.7
 
 QT themes (stylesheet) specially developed for **FreeCAD** (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
@@ -49,18 +49,9 @@ Caveats
     * the "Task panel" is not stylable
 - in app icons-buttons are designed in svg but are not stylable, that is, it's not possible to change them... I hope it also changes in the near future
 
-Known bugs
+Known bugs and To do
 ------
-- In OSX, height and width in "QMainWindow::separator:horizontal" and "QMainWindow::separator:vertical" produces a weird line when moving the separators
-
-To do
-------
-- different images for toolbar horizontal/vertical "show more" buttons
-- delete border style for icons inside Workbenches dropdown
-- make more space for ToolButtons with menu inside to toolbar because the dropdown button is inside the button itself
-- padding of table header text inside combobox
-- align text of Model panel header to center
-- style what seems a QLineEdit when editing "Page Result", "Template" or "Editable Texts" when selecting a Page and on the Data panel
+Please, follow the [link to get updated information](http://forum.freecadweb.org/viewtopic.php?f=10&t=12417&p=99676)
 
 License
 ------
