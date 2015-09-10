@@ -1,7 +1,7 @@
 /*
 ABOUT
 ===========================================================
-version 1.7
+version 1.7a
 QT theme (stylesheet) specially developed for FreeCAD (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
 
@@ -1676,7 +1676,7 @@ QSint--ActionGroup QFrame[class="content"] {
 /* HACK
 This might not be the best way to reset the background color: */
 QSint--ActionGroup QFrame[class="content"] QWidget {
-    background-color: blue  ;
+    background-color: transparent;
 }
 
 QSint--ActionGroup QFrame[class="content"] QPushButton {
