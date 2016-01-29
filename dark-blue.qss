@@ -1,7 +1,7 @@
 /*
 ABOUT
 ===========================================================
-version 1.7a
+version 1.8
 QT theme (stylesheet) specially developed for FreeCAD (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
 
@@ -34,9 +34,9 @@ CUSTOMIZATION
 ===========================================================
 If you would like to change the overall look/style of the theme, just find and replace following colors in the whole file:
     background darker = #4d4e51
-    background dark and slighly darker = #5d5e61
+    background dark and slightly darker = #5d5e61
     background dark = #6d6e71
-    background normal and slighly darker = #797b7f
+    background normal and slightly darker = #797b7f
     background normal = #85878a
     background light = #9a9b9e
     background lighter = #c7c7c9
@@ -54,10 +54,18 @@ If you would like to change the overall look/style of the theme, just find and r
     selection light = #7cabf9
     selection lighter = #adc5ed
 
+
+CAVEATS
+===========================================================
+    - FreeCAD 0.15
+        - full paths to images are needed, that means all these .qss files should be edited per user
+        - the "Task panel" is not stylable
+    - in app icons-buttons are designed in svg but are not stylable, that is, it's not possible to change them... I hope it also changes in the near future
+
+
 KNOWN BUGS and TO DO
 ===========================================================
-    - please, follow the link to get updated information: http://forum.freecadweb.org/viewtopic.php?f=10&t=12417&p=99676
-
+    - please, follow the link to get updated information: http://forum.freecadweb.org/viewtopic.php?f=10&t=12417
 */
 
 /* RESET EVERYTHING */
@@ -70,7 +78,7 @@ QAbstractScrollArea,QCheckBox,QColumnView,QComboBox,QDateEdit,QDateTimeEdit,QDia
 }
 
 QMdiArea[showImage="true"] {
-    background-image: url(qss:images/background_freecad.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/background_freecad.png);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -94,6 +102,7 @@ QToolTip {
     color: white;
     padding: 4px;
     border-radius: 4px;
+    /*opacity: 200;*/
 }
 
 QWidget {
@@ -149,7 +158,7 @@ QMenu::icon {
 }
 
 QMenu::right-arrow {
-    image:url(qss:images/right_arrow_light.png);
+    image:url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/right_arrow_light.png);
 }
 
 QMenu::item {
@@ -185,7 +194,7 @@ QMenu::indicator:non-exclusive {
 QMenu::indicator:non-exclusive:checked {
     background-color: #3874f2;
     border: 1px solid #1b3774;
-    image:url(qss:images/checkbox_light.png);
+    image:url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/checkbox_light.png);
 }
 
 QGroupBox {
@@ -197,6 +206,8 @@ QGroupBox {
     border-color: rgba(0, 0, 0, 20); /* lighter than "QGroupBox" border-color */
     background-color: rgba(255, 255, 255, 15);
 }
+
+
 
 QGroupBox::title {
     subcontrol-origin: margin;
@@ -234,7 +245,7 @@ QScrollBar::handle:horizontal {
 
 QScrollBar::add-line:horizontal {
     margin: 1px 3px 0px 3px; /* 1px to correctly fit the 10px width image */
-    border-image: url(qss:images/right_arrow_light.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/right_arrow_light.png);
     width: 6px;
     height: 10px;
     subcontrol-position: right;
@@ -243,7 +254,7 @@ QScrollBar::add-line:horizontal {
 
 QScrollBar::sub-line:horizontal {
     margin: 1px 3px 0px 3px; /* 1px to correctly fit the 10px width image */
-    border-image: url(qss:images/left_arrow_light.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/left_arrow_light.png);
     height: 10px;
     width: 6px;
     subcontrol-position: left;
@@ -252,13 +263,13 @@ QScrollBar::sub-line:horizontal {
 
 QScrollBar::add-line:horizontal:hover,
 QScrollBar::add-line:horizontal:on {
-    border-image: url(qss:images/right_arrow_lighter.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/right_arrow_lighter.png);
 }
 
 
 QScrollBar::sub-line:horizontal:hover,
 QScrollBar::sub-line:horizontal:on {
-    border-image: url(qss:images/left_arrow_lighter.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/left_arrow_lighter.png);
 }
 
 QScrollBar::up-arrow:horizontal,
@@ -288,7 +299,7 @@ QScrollBar::handle:vertical {
 
 QScrollBar::sub-line:vertical {
     margin: 3px 0px 3px 1px; /* 1px to correctly fit the 10px width image */
-    border-image: url(qss:images/up_arrow_light.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_light.png);
     height: 6px;
     width: 10px;
     subcontrol-position: top;
@@ -297,7 +308,7 @@ QScrollBar::sub-line:vertical {
 
 QScrollBar::add-line:vertical {
     margin: 3px 0px 3px 1px; /* 1px to correctly fit the 10px width image */
-    border-image: url(qss:images/down_arrow_light.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_light.png);
     height: 6px;
     width: 10px;
     subcontrol-position: bottom;
@@ -306,12 +317,12 @@ QScrollBar::add-line:vertical {
 
 QScrollBar::sub-line:vertical:hover,
 QScrollBar::sub-line:vertical:on {
-    border-image: url(qss:images/up_arrow_lighter.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_lighter.png);
 }
 
 QScrollBar::add-line:vertical:hover,
 QScrollBar::add-line:vertical:on {
-    border-image: url(qss:images/down_arrow_lighter.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_lighter.png);
 }
 
 QScrollBar::up-arrow:vertical,
@@ -343,7 +354,7 @@ QPlainTextEdit {
 }
 
 QSizeGrip {
-    image: url(qss:images/sizegrip_light.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/sizegrip_light.png);
     width: 16px;
     height: 16px;
     background-color: transparent;
@@ -358,7 +369,7 @@ QRadioButton::indicator:unchecked{
 QRadioButton::indicator:checked {
     background-color: #3874f2;
     border: 1px solid #1b3774;
-    image:url(qss:images/radiobutton_light.png);
+    image:url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/radiobutton_light.png);
 }
 
 QCheckBox,
@@ -402,7 +413,7 @@ QCheckBox::indicator:checked,
 QGroupBox::indicator:checked {
     background-color: #3874f2;
     border: 1px solid #1b3774;
-    image:url(qss:images/checkbox_light.png);
+    image:url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/checkbox_light.png);
 }
 
 QCheckBox::indicator:disabled,
@@ -425,7 +436,7 @@ QMenu::indicator:non-exclusive:disabled {
 QCheckBox::indicator:indeterminate {
     background-color: #3874f2;
     border: 1px solid #1b3774;
-    image: url(qss:images/checkbox_indeterminate_light.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/checkbox_indeterminate_light.png);
 }
 
 QCheckBox:focus,
@@ -440,6 +451,7 @@ QFrame:on {
     border: 1px solid #85878a;
     border-radius: 3px;
     padding: 0px;
+    /* background-color: transparent; temporal */
 }
 
 /* border and background of QComboBox drop-down */
@@ -457,18 +469,17 @@ QFrame[frameShape="0"] {
     border-radius: 3px;
 }
 
+/* Separator line */
+QFrame[height="1"],
+QFrame[height="2"],
 QFrame[height="3"],
+QFrame[width="1"],
+QFrame[width="2"],
 QFrame[width="3"] {
-    border-color: transparent;
+	border-width: 1px 0px 0px 0px;
+	border-style: solid;
+    border-color: #797b7f;
     background-color: transparent;
-}
-
-QFrame[height="3"] {
-    border-top-color: #6d6e71;
-}
-
-QFrame[width="3"] {
-    border-left-color: #6d6e71;
 }
 
 QPushButton {
@@ -511,6 +522,7 @@ Gui--ColorButton,
 Gui--ColorButton:disabled {
     border-color: transparent;
     background-color: transparent;
+    /*width: 60px;*/
     height: 24px;
     padding: 0px;
     margin: 0px;
@@ -572,7 +584,7 @@ QToolBar {
 }
 
 QToolBar::handle:horizontal {
-    background-image: url(qss:images/Hmovetoolbar_dark.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/Hmovetoolbar_dark.png);
     width: 10px;
     margin: 6px 2px 6px 2px;
     background-position: top right;
@@ -580,7 +592,7 @@ QToolBar::handle:horizontal {
 }
 
 QToolBar::handle:vertical {
-    background-image: url(qss:images/Vmovetoolbar_dark.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/Vmovetoolbar_dark.png);
     height: 10px;
     margin: 2px 6px 2px 6px;
     background-position: left bottom;
@@ -588,7 +600,7 @@ QToolBar::handle:vertical {
 }
 
 QToolBar::separator:horizontal {
-    background-image: url(qss:images/separtoolbar_dark.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/separtoolbar_dark.png);
     width: 10px;
     margin: 6px 2px 6px 2px;
     background-position: center center;
@@ -596,7 +608,7 @@ QToolBar::separator:horizontal {
 }
 
 QToolBar::separator:vertical {
-    background-image: url(qss:images/separtoolbar_dark.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/separtoolbar_dark.png);
     height: 10px;
     margin: 2px 6px 2px 6px;
     background-position: center center;
@@ -627,7 +639,6 @@ QAbstractSpinBox:up-button {
     subcontrol-origin: border;
     subcontrol-position: top right;
     border-top-right-radius: 3px;
-    height: 13px;
     width: 20px;
 }
 
@@ -636,7 +647,6 @@ QAbstractSpinBox:down-button {
     subcontrol-origin: border;
     subcontrol-position: bottom right;
     border-bottom-right-radius: 3px;
-    height: 13px;
     width: 20px;
 }
 
@@ -646,16 +656,16 @@ QAbstractSpinBox:down-button:disabled {
 }
 
 QAbstractSpinBox::up-arrow {
-    image: url(qss:images/up_arrow_light.png);
-    top: 0px; /* fix simetry between up and down images */
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_light.png);
+    top: 1px; /* fix simetry between up and down images */
 }
 
 QAbstractSpinBox::up-arrow:hover {
-    image: url(qss:images/up_arrow_lighter.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_lighter.png);
 }
 
 QAbstractSpinBox::up-arrow:off {
-    image: url(qss:images/up_arrow_disabled_dark.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_disabled_dark.png);
 }
 
 QAbstractSpinBox::up-arrow:disabled {
@@ -663,15 +673,15 @@ QAbstractSpinBox::up-arrow:disabled {
 }
 
 QAbstractSpinBox::down-arrow {
-    image: url(qss:images/down_arrow_light.png);
-    bottom: -2px; /* fix simetry between up and down images */
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_light.png);
+    bottom: -1px; /* fix simetry between up and down images */
 }
 QAbstractSpinBox::down-arrow:hover {
-    image: url(qss:images/down_arrow_lighter.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_lighter.png);
 }
 
 QAbstractSpinBox::down-arrow:off {
-    image: url(qss:images/down_arrow_disabled_dark.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_disabled_dark.png);
 }
 
 QAbstractSpinBox::down-arrow:disabled {
@@ -679,8 +689,8 @@ QAbstractSpinBox::down-arrow:disabled {
 }
 
 QToolBar QAbstractSpinBox {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 QLineEdit {
@@ -728,13 +738,13 @@ QComboBox::drop-down {
 }
 
 QComboBox::down-arrow {
-    image: url(qss:images/down_arrow_light.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_light.png);
 }
 
 QComboBox::down-arrow:on,
 QComboBox::down-arrow:hover,
 QComboBox::down-arrow:focus {
-    image: url(qss:images/down_arrow_lighter.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_lighter.png);
 }
 
 QComboBox QAbstractItemView {
@@ -814,6 +824,8 @@ QTreeView QLineEdit,
 QTreeView QComboBox {
     margin-left: 0px;
     margin-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 /* Pushbutton style for "..." inside Placement cell which launches Placement tool */
@@ -887,7 +899,7 @@ QTabBar::close-button {
     padding: 0px;
     margin: 0px;
     border-radius: 2px;
-    background-image: url(qss:images/close_dark.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/close_dark.png);
     background-position: center center;
     background-repeat: none;
 }
@@ -918,64 +930,65 @@ QTabBar QToolButton:hover {
 }
 
 QTabBar QToolButton::right-arrow:enabled {
-     image: url(qss:images/right_arrow_light.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/right_arrow_light.png);
 }
 
 QTabBar QToolButton::right-arrow:disabled,
 QTabBar QToolButton::right-arrow:off {
-     image: url(qss:images/right_arrow_disabled_dark.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/right_arrow_disabled_dark.png);
 }
 
 QTabBar QToolButton::right-arrow:hover {
-     image: url(qss:images/right_arrow_lighter.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/right_arrow_lighter.png);
 }
 
  QTabBar QToolButton::left-arrow:enabled {
-     image: url(qss:images/left_arrow_light.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/left_arrow_light.png);
 }
 
  QTabBar QToolButton::left-arrow:disabled,
  QTabBar QToolButton::left-arrow:off {
-     image: url(qss:images/left_arrow_disabled_dark.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/left_arrow_disabled_dark.png);
 }
 
  QTabBar QToolButton::left-arrow:hover {
-     image: url(qss:images/left_arrow_lighter.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/left_arrow_lighter.png);
 }
 
  QTabBar QToolButton::up-arrow:enabled {
-     image: url(qss:images/up_arrow_light.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_light.png);
 }
 
  QTabBar QToolButton::up-arrow:disabled,
  QTabBar QToolButton::up-arrow:off {
-     image: url(qss:images/up_arrow_disabled_dark.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_disabled_dark.png);
 }
 
  QTabBar QToolButton::up-arrow:hover {
-     image: url(qss:images/up_arrow_lighter.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_lighter.png);
 }
 
  QTabBar QToolButton::down-arrow:enabled {
-     image: url(qss:images/down_arrow_light.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_light.png);
 }
 
  QTabBar QToolButton::down-arrow:disabled,
  QTabBar QToolButton::down-arrow:off {
-     image: url(qss:images/down_arrow_disabled_dark.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_disabled_dark.png);
 }
 
  QTabBar QToolButton::down-arrow:hover {
-     image: url(qss:images/down_arrow_lighter.png);
+     image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_lighter.png);
 }
 
-/* TOP and BOTTOM TABS */
+/* HORIZONTAL TABS */
 QTabBar::tab:top,
 QTabBar::tab:bottom {
     color: #c7c7c9;
     border: 1px solid #6d6e71;
     border-left-color: #85878a;
     border-right-width: 0px;
+    border-bottom: 1px solid #5d5e61; /* shadown effect */
     background-color: #6d6e71;
     padding:5px 15px;
     margin-top: 4px;
@@ -1001,6 +1014,7 @@ QTabBar::tab:bottom:selected {
     color: white;
     background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #3874f2, stop:1 #5e90fa);
     border-color: #3874f2;
+    border-bottom: 1px solid #5d5e61; /* shadown effect */
 }
 
 QTabBar::tab:top:!selected:hover,
@@ -1014,13 +1028,14 @@ QTabBar::tab:bottom:only-one {
     border-radius: 6px;
 }
 
-/* LEFT and RIGHT TABS */
+/* VERTICAL TABS */
 QTabBar::tab:left,
 QTabBar::tab:right {
     color: #c7c7c9;
     border: 1px solid #6d6e71;
     border-top-color: #85878a;
     border-bottom-width: 0px;
+    border-right: 1px solid #5d5e61; /* shadown effect */
     background-color: #6d6e71;
     padding: 15px 5px;
     margin-left: 4px;
@@ -1046,6 +1061,7 @@ QTabBar::tab:right:selected {
     color: white;
     background-color: qlineargradient(spread:pad, x1:0.545, y1:1, x2:0, y2:1, stop:0 #3874f2, stop:1 #5e90fa);
     border-color: #3874f2;
+    border-right: 1px solid #5d5e61; /* shadown effect */
 }
 
 QTabBar::tab:left:!selected:hover,
@@ -1062,8 +1078,8 @@ QTabBar::tab:right:only-one {
 QDockWidget {
     color: #4d4e51;
     border: 1px solid #85878a;
-    titlebar-close-icon: url(qss:images/close_dark.png);
-    titlebar-normal-icon: url(qss:images/undock_dark.png);
+    titlebar-close-icon: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/close_dark.png);
+    titlebar-normal-icon: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/undock_dark.png);
 }
 
 QDockWidget::title {
@@ -1155,34 +1171,34 @@ QTreeView::branch  {
 }
 
 QTreeView::branch:has-siblings:!adjoins-item  {
-    border-image: url(qss:images/branch_vline.png) 0;
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_vline.png) 0;
 }
 
 QTreeView::branch:has-siblings:adjoins-item  {
-    border-image: url(qss:images/branch_more.png) 0;
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_more.png) 0;
 }
 
 QTreeView::branch:!has-children:!has-siblings:adjoins-item  {
-    border-image: url(qss:images/branch_end.png) 0;
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_end.png) 0;
 }
 
 QTreeView::branch:closed:has-children:has-siblings  {
-    image: url(qss:images/branch_closed_dark.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_closed_dark.png);
 }
 
 QTreeView::branch:has-children:!has-siblings:closed  {
-    image: url(qss:images/branch_closed_dark.png);
-    border-image: url(qss:images/branch_end.png) 0;
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_closed_dark.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_end.png) 0;
 }
 
 QTreeView::branch:open:has-children:has-siblings  {
-    image: url(qss:images/branch_open_dark.png);
-    border-image: url(qss:images/branch_more.png) 0;
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_open_dark.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_more.png) 0;
 }
 
 QTreeView::branch:open:has-children:!has-siblings  {
-    image: url(qss:images/branch_open_dark.png);
-    border-image: url(qss:images/branch_end.png) 0;
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_open_dark.png);
+    border-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/branch_end.png) 0;
 }
 
 QSlider,
@@ -1272,6 +1288,7 @@ QToolButton {
     margin-right: 10px;
     border-radius: 3px;
     outline: none;
+    /*min-width: 36px;*/
 }
 
 QToolButton:hover,
@@ -1308,20 +1325,20 @@ QToolButton#qt_toolbar_ext_button {
     border-radius: 0px;
     margin: 0px;
     padding: 0px;
-    /*background-image: url(qss:images/more_dark.png);*/
+    /*background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/more_dark.png);*/
     image: transparent;
     background-repeat: none;
     background-position: center left;
 }
 
 QToolButton#qt_toolbar_ext_button:hover {
-    /*background-image: url(qss:images/more_light.png);*/
+    /*background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/more_light.png);*/
     border-color: #797b7f;
     background-color: #797b7f;
 }
 
 QToolButton#qt_toolbar_ext_button:on {
-    /*background-image: url(qss:images/more_light.png);*/
+    /*background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/more_light.png);*/
     border-color: #797b7f;
     background-color: #797b7f;
 }
@@ -1364,7 +1381,7 @@ QToolBar QToolButton::menu-indicator:pressed {
 
 /* the subcontrols below are used only in the MenuButtonPopup mode */
 QToolBar QToolButton::menu-button {
-    border: 1px transparent #4A4949;
+    border: none;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     width: 16px; /* 16px width + 4px for border = 20px allocated above */
@@ -1380,7 +1397,7 @@ QToolBar QToolButton::menu-button:disabled {
 }
 
 QToolBar QToolButton::menu-arrow {
-    background-image: url(qss:images/down_arrow_light.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_light.png);
     background-position: center center;
     background-repeat: none;
     subcontrol-origin: padding;
@@ -1389,7 +1406,29 @@ QToolBar QToolButton::menu-arrow {
 }
 
 QToolBar QToolButton::menu-arrow:open {
-    background-image: url(qss:images/down_arrow_lighter.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_lighter.png);
+}
+
+/* If the QToolButton is also a menu: */
+QToolBar QToolButton#qt_toolbutton_menubutton {
+    padding-right: 20px;
+    border: 1px solid transparent;
+}
+
+QToolBar QToolButton#qt_toolbutton_menubutton:hover,
+QToolBar QToolButton#qt_toolbutton_menubutton:pressed,
+QToolBar QToolButton#qt_toolbutton_menubutton:open {
+    border: 1px solid #7cabf9;
+}
+
+QToolBar QToolButton#qt_toolbutton_menubutton::menu-button {
+    border: none; /* necessary because it inherits the border from QToolButton#qt_toolbutton_menubutton */
+}
+
+QToolBar QToolButton#qt_toolbutton_menubutton::menu-button:hover,
+QToolBar QToolButton#qt_toolbutton_menubutton::menu-button:pressed,
+QToolBar QToolButton#qt_toolbutton_menubutton::menu-button:open {
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.8, x2:1, y2:0, stop:0 #5e90fa, stop:1 #7cabf9);
 }
 
 QToolBar:tear {
@@ -1495,11 +1534,11 @@ QHeaderView::section:checked {
 
  /* style the sort indicator */
 QHeaderView::down-arrow {
-    image: url(qss:images/down_arrow_light.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_light.png);
 }
 
 QHeaderView::up-arrow {
-    image: url(qss:images/up_arrow_light.png);
+    image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_light.png);
 }
 
 QTableCornerButton::section {
@@ -1538,6 +1577,7 @@ QStatusBar::item {
     border-radius: 2px;
 }
 
+
 QSplitter::handle {
     background-color: #85878a;
     margin: 0px 11px;
@@ -1546,7 +1586,7 @@ QSplitter::handle {
 }
 
 QSplitter::handle:vertical {
-    background-image: url(qss:images/splitter_horizontal_dark.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/splitter_horizontal_dark.png);
     background-position: center center;
     background-repeat: none;
     margin: 2px 10px 2px 10px;
@@ -1554,7 +1594,7 @@ QSplitter::handle:vertical {
 }
 
 QSplitter::handle:horizontal {
-    background-image: url(qss:images/splitter_horizontal_dark.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/splitter_horizontal_dark.png);
     background-position: center center;
     background-repeat: none;
     margin: 10px 2px 10px 2px;
@@ -1580,12 +1620,12 @@ QMainWindow::separator:hover {
 
 QMainWindow::separator:horizontal {
     height: 4px;
-    background-image: url(qss:images/splitter_horizontal_dark.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/splitter_horizontal_dark.png);
 }
 
 QMainWindow::separator:vertical {
     width: 4px;
-    background-image: url(qss:images/splitter_vertical_dark.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/splitter_vertical_dark.png);
 }
 
 QLabel {
@@ -1603,6 +1643,16 @@ QLabel:disabled {
 QFrame[class="panel"] {
     border: none;
     background-color: #85878a;
+}
+
+/* Separator line */
+QSint--ActionGroup QFrame[height="1"],
+QSint--ActionGroup QFrame[height="2"],
+QSint--ActionGroup QFrame[height="3"],
+QSint--ActionGroup QFrame[width="1"],
+QSint--ActionGroup QFrame[width="2"],
+QSint--ActionGroup QFrame[width="3"] {
+    border-color: #9a9b9e;
 }
 
 QSint--ActionGroup QFrame[class="header"] {
@@ -1636,7 +1686,7 @@ QSint--ActionGroup QToolButton[class="header"]:hover {
 
 QSint--ActionGroup QFrame[class="header"] QLabel {
     background-color: transparent;
-    background-image: url(qss:images/down_arrow_light.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_light.png);
     background-repeat: none;
     background-position: center center;
     padding: 0px;
@@ -1645,12 +1695,12 @@ QSint--ActionGroup QFrame[class="header"] QLabel {
 
 QSint--ActionGroup QFrame[class="header"] QLabel:hover {
     background-color: transparent;
-    background-image: url(qss:images/down_arrow_lighter.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/down_arrow_lighter.png);
 }
 
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"] {
     background-color: transparent;
-    background-image: url(qss:images/up_arrow_light.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_light.png);
     background-repeat: none;
     background-position: center center;
     padding: 0px;
@@ -1659,7 +1709,7 @@ QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"] {
 
 QSint--ActionGroup QFrame[class="header"] QLabel[fold="true"]:hover {
     background-color: transparent;
-    background-image: url(qss:images/up_arrow_lighter.png);
+    background-image: url(/Users/pablo/Library/Preferences/FreeCAD/Gui/Stylesheets/images/up_arrow_lighter.png);
 }
 
 QSint--ActionGroup QFrame[class="content"] {
@@ -1676,7 +1726,7 @@ QSint--ActionGroup QFrame[class="content"] {
 /* HACK
 This might not be the best way to reset the background color: */
 QSint--ActionGroup QFrame[class="content"] QWidget {
-    background-color: transparent;
+    background-color: #bdc1c9;
 }
 
 QSint--ActionGroup QFrame[class="content"] QPushButton {
@@ -1778,6 +1828,7 @@ QSint--ActionGroup QFrame[class="content"] QHeaderView::section::horizontal:only
 }
 /* enf of HACK */
 
+
 QSint--ActionGroup QToolButton[class="action"],
 QSint--ActionGroup QToolButton[class="action"]:enabled {
     font-weight: bold;
@@ -1810,4 +1861,46 @@ QSint--ActionGroup QToolButton[class="action"]:enabled:pressed {
 QSint--ActionGroup QToolButton[class="action"]:on {
     background-color: red;
     color: red;
+}
+
+
+/* EXPERIMENTAL
+================================================= */
+QDial {
+    background-color: #85878a;
+}
+
+QLCDNumber {
+    background-color: #85878a;
+}
+
+QCalendarWidget {
+    background-color: green;
+}
+
+/* Expressions popup dialog fixes to embed elements */
+QAbstractSpinBox QPushButton {
+	padding: 0px 15px 0px 15px;
+	margin: 2px 10px 2px 10px;
+	border: 1px solid #4d4e51;
+	border-radius: 3px;
+}
+QAbstractSpinBox QPushButton:disabled {
+	color: #9a9b9e;
+	background-color: #85878a;
+	border-color: #85878a;
+}
+
+QAbstractSpinBox QFrame,
+QSint--ActionGroup QFrame[class="content"] QAbstractSpinBox QFrame {
+	color: #adc5ed;
+	background-color: #6d6e71;
+	border-color: #6d6e71;
+	border-radius: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+QSint--ActionGroup QFrame[class="content"] QAbstractSpinBox QPushButton {
+	padding: 6px 15px 6px 15px;
 }
