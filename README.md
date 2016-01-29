@@ -1,5 +1,5 @@
 About
-------
+-------
 version 1.8
 
 QT themes (stylesheet) specially developed for **FreeCAD** (http://www.freecadweb.org/).
