@@ -1,6 +1,6 @@
 About
 -------
-version 2.0
+version 2.01
 
 QT themes (stylesheet) specially developed for **FreeCAD** (http://www.freecadweb.org/).
 They might work with other software that uses QT styling.
