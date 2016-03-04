@@ -1,7 +1,7 @@
 /*
 ABOUT
 ============================================================================================================
-version 2.0
+version 2.01
 QT theme (stylesheet) specially developed for FreeCAD (http://www.freecadweb.org/).
 It might work with other software that uses QT styling.
 
@@ -77,6 +77,8 @@ Reset elements
     margin: 0px;
     border: 0px;
     border-style: none;
+    border-image: none;
+    outline: 0;
 }
 
 /* specific reset for elements inside QToolBar */
@@ -97,7 +99,7 @@ QToolBar  {
 
 QMdiArea[showImage="true"] {
     background-image: url(qss:images/background_freecad.png);
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
 }
 
@@ -115,6 +117,7 @@ QMenu,
 QMenu::item {
     color: #e0e0e0;
     background-color: #5a5a5a;
+    text-decoration: none;
 }
 
 QMenuBar::item:selected,
@@ -293,7 +296,7 @@ QProgressBar:horizontal {
 }
 QProgressBar::chunk,
 QProgressBar::chunk:horizontal {
-    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #94b30f, stop:1 #819c0c);
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #819c0c, stop:1 #94b30f);
     border-radius: 3px;
 }
 
@@ -319,12 +322,12 @@ QScrollBar:horizontal {
 
 QScrollBar::handle:vertical,
 QScrollBar::handle:horizontal {
-    background-color: rgba(0,0,0,100);
+    background-color: rgba(0,0,0,80);
 }
 
 QScrollBar::handle:vertical:hover,
 QScrollBar::handle:horizontal:hover {
-    background-color: #1e1e1e;
+    background-color: rgba(0,0,0,100);
 }
 
 QScrollBar::handle:horizontal {
@@ -565,7 +568,7 @@ QDialog#Gui__Dialog__DlgPreferences > QListView {
 
 /* unique styles for sections inside Preferences */
 QDialog#Gui__Dialog__DlgPreferences > QListView::item {
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 QDialog#Gui__Dialog__DlgPreferences > QListView::item:hover {
@@ -575,7 +578,7 @@ QDialog#Gui__Dialog__DlgPreferences > QListView::item:hover {
 QDialog#Gui__Dialog__DlgPreferences > QListView::item:selected {
     color: white;
     background-color: #94b30f;
-    border: 1px solid #819c0c;
+    border: 3px solid #819c0c;
 }
 
 
@@ -689,6 +692,11 @@ QTableView {
     selection-background-color: #94b30f; /* should be similar to QListView::item selected background-color */
     show-decoration-selected: 1; /* make the selection span the entire width of the view */
     border-radius: 3px;
+}
+
+QListView::item:hover,
+QTreeView::item:hover  {
+    background-color: transparent; /* fix to homogenize it on all OSs */
 }
 
 QListView::item:selected,
@@ -901,6 +909,20 @@ QTreeView::branch:open:has-children:has-siblings  {
 QTreeView::branch:open:has-children:!has-siblings  {
     image: url(qss:images/branch_open_dark.png);
     border-image: url(qss:images/branch_end.png) 0;
+}
+
+
+/*==================================================================================================
+Text/Python editor (macros, etc...)
+==================================================================================================*/
+QPlainTextEdit,
+QPlainTextEdit:focus {
+    background-color: #c8c8c8;
+    selection-color: white;
+    selection-background-color: #819c0c;
+    border: 1px solid #505050;
+    border-radius: 3px;
+    margin: 4px;
 }
 
 
@@ -1878,6 +1900,3 @@ QDialog QGroupBox QFrame {
 }
 
 *[mandatoryField="true"] { background-color: cyan }
-
-
-
